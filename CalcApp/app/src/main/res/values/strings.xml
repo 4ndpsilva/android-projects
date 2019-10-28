@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CalcApp</string>
+    <string name="exit">Sair</string>
+    <string name="warning">Alerta</string>
+    <string name="errorDivisionByZero">Não é possível dividir por zero</string>
+    <string name="invalidOperation">Operação inválida</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="confirmExit">Deseja realmente sair do aplicativo?</string>
+</resources>

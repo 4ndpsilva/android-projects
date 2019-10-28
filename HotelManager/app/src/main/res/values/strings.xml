@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HotelManager</string>
+    <string name="error_not_found">Registro não encontrado!</string>
+</resources>

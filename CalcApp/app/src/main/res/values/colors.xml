@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="buttonPressColor">#FF3DA6EF</color>
+    <color name="buttonColor">#FFCECECE</color>
+    <color name="gradientStart1">#9EB8FF</color>
+    <color name="gradientEnd1">@color/white</color>
+    <color name="gradientStart2">#FFD9D9D9</color>
+    <color name="gradientEnd2">@color/white</color>
+    <color name="ghostWhite">#F8F8FF</color>
+    <color name="orange">#FFA400</color>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinanceApp</string>
+    <string name="bomDia">Good morning</string>
+    <string name="boaNoite">Good night</string>
+    <string name="boaNoitex">Boa noite</string>
+</resources>
