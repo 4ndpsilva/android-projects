@@ -17,9 +17,6 @@ interface TaskDAO{
     fun delete(task: Task)
 
     @Query("SELECT * FROM TB_TASK ORDER BY done")
-    fun findAll2(): List<Task>
-
-    @Query("SELECT * FROM TB_TASK ORDER BY done")
     fun findAll(): LiveData<List<Task>>
 
     @Query("SELECT * FROM TB_TASK WHERE id = :id")

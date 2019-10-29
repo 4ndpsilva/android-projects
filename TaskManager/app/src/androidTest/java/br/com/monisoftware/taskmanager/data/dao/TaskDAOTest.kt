@@ -25,9 +25,9 @@ class TaskDAOTest {
         database = DatabaseApp.inMemoryDatabase(cxt)
         dao = database.getDAO()
 
-        dao.save(Task(description = "Tarefa 1", done = false))
-        dao.save(Task(description = "Tarefa 2", done = false))
-        dao.save(Task(description = "Tarefa 3", done = false))
+        dao.save(Task(description = "Lavar o carro", done = false))
+        dao.save(Task(description = "Estudar para prova", done = false))
+        dao.save(Task(description = "Pintar a sala", done = false))
     }
 
     @After
@@ -35,7 +35,7 @@ class TaskDAOTest {
 
     @Test
     fun saveAndGetTask(){
-        val task = Task(description = "Lavar o carro", done = false)
+        val task = Task(description = "Limpar a casa", done = false)
         task.id = dao.save(task)
 
         val taskFind = dao.findById(task.id)
@@ -70,6 +70,19 @@ class TaskDAOTest {
         dao.findAll().observeOnce { tasks ->
             Assert.assertEquals(true, tasks.isNotEmpty())
         }
+    }
+
+    @Test
+    fun fetchQuantityPendingTasks(){
+        val quantity = dao.getRemainingTasks(false)
+        Assert.assertEquals(3, quantity)
+    }
+
+    @Test
+    fun fetchQuantityDoneTasks(){
+        dao.update(Task(id = 1, done = true))
+        val quantity = dao.getRemainingTasks(true)
+        Assert.assertEquals(1, quantity)
     }
 
     private fun <T> LiveData<T>.observeOnce(onChangeHandler: (T) -> Unit){
