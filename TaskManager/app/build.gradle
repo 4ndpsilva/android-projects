@@ -27,11 +27,13 @@ android {
     }
 }
 
-dependencies {
-    def room_version = '2.2.0'
-    def arch_core_version = '2.1.0'
-    def espresso_version = '3.2.0'
+ext{
+    room_version = '2.2.0'
+    arch_core_version = '2.0.1'
+    espresso_version = '3.2.0'
+}
 
+dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
