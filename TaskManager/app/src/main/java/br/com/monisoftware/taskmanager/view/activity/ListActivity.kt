@@ -2,18 +2,20 @@ package br.com.monisoftware.taskmanager.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.monisoftware.taskmanager.App
 import br.com.monisoftware.taskmanager.R
-import br.com.monisoftware.taskmanager.data.DatabaseApp
 import br.com.monisoftware.taskmanager.data.entity.Task
 import br.com.monisoftware.taskmanager.presenter.ListPresenter
 import br.com.monisoftware.taskmanager.presenter.contract.ListContract
 import br.com.monisoftware.taskmanager.util.Constants
 import br.com.monisoftware.taskmanager.view.TaskAdapter
 import br.com.monisoftware.taskmanager.view.fragment.DeleteConfirmFragment
+import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.list_activity.*
 
 class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.OnItemClickListener<Task>, ListContract.DeleteListener{
@@ -24,7 +26,7 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
 
-        val dao = DatabaseApp.database(this).getDAO()
+        val dao = App.database.getDAO()
         presenter = ListPresenter(this, dao)
         initView()
     }
@@ -32,6 +34,12 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
     override fun onStart() {
         super.onStart()
         presenter.populate()
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 
     override fun showForm(id: Long) {
@@ -96,6 +104,8 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
     }
 
     private fun initView(){
+        setSupportActionBar(toolbarMain)
+
         fbAdd.setOnClickListener{ presenter.add() }
         initList()
     }

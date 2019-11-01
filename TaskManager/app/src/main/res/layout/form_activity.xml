@@ -7,6 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.FormActivity">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/app_bar"/>
+    
     <ScrollView
         android:id="@+id/svForm"
         android:layout_width="match_parent"

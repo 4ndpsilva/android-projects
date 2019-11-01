@@ -1,20 +1,12 @@
 package br.com.monisoftware.taskmanager.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
-import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.Dao
+import androidx.room.Query
 import br.com.monisoftware.taskmanager.data.entity.Task
 
 @Dao
-interface TaskDAO{
-    @Insert(onConflict = REPLACE)
-    fun save(user: Task): Long
-
-    @Update
-    fun update(task: Task)
-
-    @Delete
-    fun delete(task: Task)
+interface TaskDAO : BaseDAO<Task>{
 
     @Query("SELECT * FROM TB_TASK ORDER BY done")
     fun findAll(): LiveData<List<Task>>

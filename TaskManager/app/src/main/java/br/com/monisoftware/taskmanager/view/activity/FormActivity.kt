@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.com.monisoftware.taskmanager.App
 import br.com.monisoftware.taskmanager.R
 import br.com.monisoftware.taskmanager.data.DatabaseApp
 import br.com.monisoftware.taskmanager.data.entity.Task
 import br.com.monisoftware.taskmanager.presenter.FormPresenter
 import br.com.monisoftware.taskmanager.presenter.contract.FormContract
 import br.com.monisoftware.taskmanager.util.Constants
+import kotlinx.android.synthetic.main.app_bar.*
 import kotlinx.android.synthetic.main.form_activity.*
 
 class FormActivity : AppCompatActivity(), FormContract.View<Task> {
@@ -22,7 +24,7 @@ class FormActivity : AppCompatActivity(), FormContract.View<Task> {
 
         checkMode()
 
-        val dao = DatabaseApp.database(this).getDAO()
+        val dao = App.database.getDAO()
         presenter = FormPresenter(this, dao)
 
         initView()
@@ -62,6 +64,9 @@ class FormActivity : AppCompatActivity(), FormContract.View<Task> {
     }
 
     private fun initView(){
+        setSupportActionBar(toolbarMain)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         var iconButton = R.drawable.ic_done
 
         if(task.id > 0) {

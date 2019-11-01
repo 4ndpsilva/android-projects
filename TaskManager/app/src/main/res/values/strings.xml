@@ -4,6 +4,7 @@
     <!-- Labels -->
     <string name="description">Descrição</string>
     <string name="warning">Atenção</string>
+    <string name="exit">Sair</string>
 
     <!-- Phrases -->
     <string name="no_tasks">Sem tarefas</string>

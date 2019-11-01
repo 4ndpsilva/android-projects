@@ -14,10 +14,12 @@ abstract class DatabaseApp : RoomDatabase(){
     companion object{
         private const val DATABASE_NAME = "base"
 
-        fun database(cxt: Context): DatabaseApp {
-            return Room.databaseBuilder(cxt, DatabaseApp::class.java, DATABASE_NAME)
-                .allowMainThreadQueries()
-                .build()
+        fun getInstance(cxt: Context): DatabaseApp {
+            return synchronized(DatabaseApp::class){
+                 Room.databaseBuilder(cxt, DatabaseApp::class.java, DATABASE_NAME)
+                     .allowMainThreadQueries()
+                     .build()
+            }
         }
 
         fun inMemoryDatabase(cxt: Context): DatabaseApp{

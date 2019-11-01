@@ -3,12 +3,13 @@ package br.com.monisoftware.taskmanager.presenter
 import br.com.monisoftware.taskmanager.data.dao.TaskDAO
 import br.com.monisoftware.taskmanager.data.entity.Task
 import br.com.monisoftware.taskmanager.presenter.contract.ListContract
+import java.lang.IllegalArgumentException
 
 class ListPresenter : ListContract.Presenter<Task>{
     private val view: ListContract.View<Task>
-    private val dao: TaskDAO
+    private val dao: TaskDAO?
 
-    constructor(view: ListContract.View<Task>, dao: TaskDAO){
+    constructor(view: ListContract.View<Task>, dao: TaskDAO?){
         this.view = view
         this.dao = dao
         view.setPresenter(this)
@@ -19,7 +20,7 @@ class ListPresenter : ListContract.Presenter<Task>{
     }
 
     override fun populate() {
-        dao.findAll().observeForever{tasks ->
+        dao?.findAll()?.observeForever{tasks ->
             view.setItems(tasks)
             if(tasks == null || tasks.isEmpty()){
                 view.showEmptyMessage()
@@ -36,12 +37,12 @@ class ListPresenter : ListContract.Presenter<Task>{
     }
 
     override fun delete(id: Long) {
-        val task = dao.findById(id)
-        dao.delete(task)
+        val task = dao?.findById(id)
+        dao?.delete(task ?: throw IllegalArgumentException())
     }
 
     override fun update(task: Task): Int{
-        dao.update(task)
-        return dao.getRemainingTasks(false)
+        dao?.update(task)
+        return dao?.getRemainingTasks(false) ?: 0
     }
 }

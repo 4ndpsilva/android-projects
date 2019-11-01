@@ -7,6 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.ListActivity">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/app_bar"/>
+
     <TextView
         android:id="@+id/tvNoTasks"
         android:layout_width="match_parent"
@@ -30,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add"
+        app:srcCompat="@drawable/ic_add"
         android:tint="@android:color/background_light"
         app:borderWidth="0dp"
         app:fabSize="normal"
