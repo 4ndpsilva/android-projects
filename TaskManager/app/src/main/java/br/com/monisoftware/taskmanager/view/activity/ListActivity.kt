@@ -3,6 +3,7 @@ package br.com.monisoftware.taskmanager.view.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,9 +17,12 @@ import br.com.monisoftware.taskmanager.util.Constants
 import br.com.monisoftware.taskmanager.view.TaskAdapter
 import br.com.monisoftware.taskmanager.view.fragment.DeleteConfirmFragment
 import kotlinx.android.synthetic.main.app_bar.*
+import kotlinx.android.synthetic.main.empty_list.*
 import kotlinx.android.synthetic.main.list_activity.*
 
-class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.OnItemClickListener<Task>, ListContract.DeleteListener{
+class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.OnItemClickListener<Task>,
+    ListContract.DeleteListener{
+
     private lateinit var presenter: ListContract.Presenter<Task>
     private lateinit var taskAdapter: TaskAdapter
 
@@ -36,10 +40,18 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
         presenter.populate()
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.mn_exit){
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun showForm(id: Long) {

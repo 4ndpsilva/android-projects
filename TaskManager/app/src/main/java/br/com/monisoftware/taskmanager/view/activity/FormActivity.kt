@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.monisoftware.taskmanager.App
 import br.com.monisoftware.taskmanager.R
-import br.com.monisoftware.taskmanager.data.DatabaseApp
 import br.com.monisoftware.taskmanager.data.entity.Task
 import br.com.monisoftware.taskmanager.presenter.FormPresenter
 import br.com.monisoftware.taskmanager.presenter.contract.FormContract

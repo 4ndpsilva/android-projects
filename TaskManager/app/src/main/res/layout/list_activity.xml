@@ -7,28 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.ListActivity">
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/app_bar"/>
+    <include layout="@layout/app_bar"/>
+    <include layout="@layout/empty_list"/>
 
-    <TextView
-        android:id="@+id/tvNoTasks"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="italic"
-        android:gravity="center"
-        android:text="@string/no_tasks"
-        android:textSize="24sp"
-        android:visibility="gone"
-        tools:visibility="visible"/>
+        android:paddingTop="?attr/actionBarSize">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTasks"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/list_item"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTasks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/list_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fbAdd"

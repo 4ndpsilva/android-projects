@@ -14,7 +14,7 @@
         android:text="TM"
         android:textSize="65sp"
         android:textStyle="bold"
-        android:textColor="@color/colorDoneTask"/>
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:layout_width="wrap_content"
