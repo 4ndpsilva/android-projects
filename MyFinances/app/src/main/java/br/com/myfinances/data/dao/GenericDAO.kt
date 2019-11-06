@@ -19,7 +19,7 @@ abstract class GenericDAO<T>{
 
     private fun getTableName(): String{
         val paramType = javaClass.superclass?.genericSuperclass as ParameterizedType
-        val clazz = paramType.actualTypeArguments[0] as Class<*>
+        val clazz = paramType.actualTypeArguments[0] as Class<T>
         return clazz.simpleName
     }
 
