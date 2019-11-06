@@ -1,4 +1,4 @@
-package br.com.myfinances
+package br.com.myfinances.dao
 
 import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -47,6 +47,6 @@ class CategoryDAOTest {
         dao.save(category)
 
         val list = dao.findAll()
-        Assert.assertEquals(1, list.size)
+        Assert.assertEquals(4, list.size)
     }
 }

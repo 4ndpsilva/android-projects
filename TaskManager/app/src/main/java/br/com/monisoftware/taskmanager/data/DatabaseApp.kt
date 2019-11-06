@@ -9,8 +9,6 @@ import br.com.monisoftware.taskmanager.data.entity.Task
 
 @Database(entities = [Task::class], version = 1, exportSchema = false)
 abstract class DatabaseApp : RoomDatabase(){
-    abstract fun getDAO(): TaskDAO
-
     companion object{
         private const val DATABASE_NAME = "tasks.db"
 
@@ -22,10 +20,10 @@ abstract class DatabaseApp : RoomDatabase(){
             }
         }
 
-        fun inMemoryDatabase(cxt: Context): DatabaseApp{
-            return Room.inMemoryDatabaseBuilder(cxt, DatabaseApp::class.java)
-                .allowMainThreadQueries()
-                .build()
-        }
+        fun inMemoryDatabase(cxt: Context) = Room
+            .inMemoryDatabaseBuilder(cxt, DatabaseApp::class.java)
+            .build()
     }
+
+    abstract fun getDAO(): TaskDAO
 }

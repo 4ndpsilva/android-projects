@@ -1,13 +1,13 @@
 package br.com.monisoftware.taskmanager.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.RawQuery
+import androidx.room.*
 import androidx.sqlite.db.SimpleSQLiteQuery
 import androidx.sqlite.db.SupportSQLiteQuery
 import br.com.monisoftware.taskmanager.data.entity.Task
 import java.lang.reflect.ParameterizedType
 
-abstract class GenericDAO<T> : BaseDAO<T>{
+abstract class GenericDAO<T>{
 
     fun findById(id: Long): T{
         val query = SimpleSQLiteQuery("SELECT * FROM ${getTableName()} WHERE id = $id")
@@ -24,6 +24,15 @@ abstract class GenericDAO<T> : BaseDAO<T>{
         val clazz = paramType.actualTypeArguments[0] as Class<*>
         return clazz.simpleName
     }
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun save(entity: T): Long
+
+    @Update
+    abstract fun update(entity: T)
+
+    @Delete
+    abstract fun delete(entity: T)
 
     @RawQuery
     abstract fun doFindById(query: SupportSQLiteQuery): T
