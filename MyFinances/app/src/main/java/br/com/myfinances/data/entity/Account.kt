@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "TB_ACCOUNT")
+@Entity
 data class Account(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,

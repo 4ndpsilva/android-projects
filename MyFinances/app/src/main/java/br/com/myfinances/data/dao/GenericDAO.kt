@@ -1,17 +1,40 @@
 package br.com.myfinances.data.dao
 
+import androidx.room.*
 import androidx.sqlite.db.SimpleSQLiteQuery
+import androidx.sqlite.db.SupportSQLiteQuery
+import java.lang.reflect.ParameterizedType
 
-abstract class GenericDAO<T>(var tableName: String = "") : BaseDAO<T>, RawQueryDAO<T>{
-    private val rawDAO: RawQueryDAO<T> = this
+abstract class GenericDAO<T>{
 
     suspend fun findById(id: Long): T{
-        val query = SimpleSQLiteQuery("SELECT * FROM $tableName WHERE id = $id")
-        return rawDAO.findById(query)
+        val query = SimpleSQLiteQuery("SELECT * FROM ${getTableName()} WHERE id = $id")
+        return doFindById(query)
     }
 
     suspend fun findAll(): List<T>{
-        val query = SimpleSQLiteQuery("SELECT * FROM $tableName")
-        return rawDAO.findAll(query)
+        val query = SimpleSQLiteQuery("SELECT * FROM ${getTableName()}")
+        return doFindAll(query)
     }
+
+    private fun getTableName(): String{
+        val paramType = javaClass.superclass?.genericSuperclass as ParameterizedType
+        val clazz = paramType.actualTypeArguments[0] as Class<*>
+        return clazz.simpleName
+    }
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun save(entity: T)
+
+    @Update
+    abstract suspend fun update(entity: T)
+
+    @Delete
+    abstract suspend fun delete(entity: T)
+
+    @RawQuery
+    abstract suspend fun doFindById(query : SupportSQLiteQuery): T
+
+    @RawQuery
+    abstract suspend fun doFindAll(query : SupportSQLiteQuery): List<T>
 }

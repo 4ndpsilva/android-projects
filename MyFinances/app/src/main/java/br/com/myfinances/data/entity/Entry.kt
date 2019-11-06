@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(tableName = "TB_ENTRY")
+@Entity
 data class Entry(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,

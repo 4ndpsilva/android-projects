@@ -1,21 +1,15 @@
 package br.com.myfinances.repository
 
-import br.com.myfinances.data.dao.BaseDAO
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import br.com.myfinances.data.dao.GenericDAO
 
-open class BaseRepository<T>(val dao: BaseDAO<T>){
-    open fun save(entity: T){
-        GlobalScope.launch {
-            dao.save(entity)
-        }
-    }
+abstract class BaseRepository<T>(private val dao: GenericDAO<T>){
+    suspend fun save(entity: T) = dao.save(entity)
 
-    open fun update(entity: T){
+    suspend fun update(entity: T) = dao.update(entity)
 
-    }
+    suspend fun delete(entity: T) = dao.delete(entity)
 
-    open fun delete(entity: T){
+    suspend fun findById(id: Long) = dao.findById(id)
 
-    }
+    suspend fun findAll() = dao.findAll()
 }

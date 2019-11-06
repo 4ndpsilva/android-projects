@@ -17,13 +17,12 @@ import br.com.myfinances.data.entity.Entry
 @TypeConverters(DateConverter::class)
 abstract class DatabaseApp : RoomDatabase(){
     companion object{
-        private const val DATABASE_NAME = "finance.db"
-        private val LOCK = Any()
+        private const val DATABASE_NAME = "finances.db"
 
         @Volatile
         private var instance: DatabaseApp? = null
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
+        operator fun invoke(context: Context) = instance ?: synchronized(this){
             instance ?: buildDatabase(context).also{ instance = it }
         }
 

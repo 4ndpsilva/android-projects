@@ -6,8 +6,8 @@ import br.com.myfinances.data.entity.Entry
 import java.util.*
 
 @Dao
-abstract class EntryDAO : GenericDAO<Entry>("TB_ENTRY"){
+abstract class EntryDAO : GenericDAO<Entry>(){
 
-    @Query("SELECT * FROM TB_ENTRY WHERE date BETWEEN :start AND :end")
+    @Query("SELECT * FROM Entry WHERE date BETWEEN :start AND :end")
     abstract suspend fun findByDate(start: Date, end: Date): List<Entry>
 }
