@@ -12,7 +12,7 @@ abstract class DatabaseApp : RoomDatabase(){
     abstract fun getDAO(): TaskDAO
 
     companion object{
-        private const val DATABASE_NAME = "base"
+        private const val DATABASE_NAME = "tasks.db"
 
         fun getInstance(cxt: Context): DatabaseApp {
             return synchronized(DatabaseApp::class){

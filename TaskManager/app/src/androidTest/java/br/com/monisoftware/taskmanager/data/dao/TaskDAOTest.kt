@@ -67,9 +67,11 @@ class TaskDAOTest {
 
     @Test
     fun fetchAllTasks(){
-        dao.findAll().observeOnce { tasks ->
+        /*dao.findAll().observeOnce { tasks ->
             Assert.assertEquals(true, tasks.isNotEmpty())
-        }
+        }*/
+
+        Assert.assertEquals(true, dao.findAll().isNotEmpty())
     }
 
     @Test
