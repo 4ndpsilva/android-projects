@@ -43,7 +43,7 @@ class TaskDAOTest {
     }
 
     @Test
-    fun deleteAndFetchDeletedTask(){
+    fun deleteAndFetchDeletedTaskById(){
         val task = Task(id = 1)
         dao.delete(task)
         Assert.assertNull(dao.findById(1))
@@ -67,11 +67,9 @@ class TaskDAOTest {
 
     @Test
     fun fetchAllTasks(){
-        /*dao.findAll().observeOnce { tasks ->
+        dao.findAll().observeOnce { tasks ->
             Assert.assertEquals(true, tasks.isNotEmpty())
-        }*/
-
-        Assert.assertEquals(true, dao.findAll().isNotEmpty())
+        }
     }
 
     @Test

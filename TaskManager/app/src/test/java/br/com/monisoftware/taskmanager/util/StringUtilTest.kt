@@ -5,7 +5,7 @@ import org.junit.Test
 
 class StringUtilTest {
     @Test
-    fun stringShouldContainLetterOrDigitOnly() {
+    fun shouldContainLetterOrDigitOnly() {
         val str = "ajahfdak28344263"
         assertEquals(true, StringUtil.isLetterOrDigitOnly(str))
     }
