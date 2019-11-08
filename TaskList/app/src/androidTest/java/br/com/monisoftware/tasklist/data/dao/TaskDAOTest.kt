@@ -2,11 +2,11 @@ package br.com.monisoftware.tasklist.data.dao
 
 import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import br.com.monisoftware.tasklist.data.DatabaseApp
 import br.com.monisoftware.tasklist.data.entity.Task
+import br.com.monisoftware.tasklist.data.util.LiveDataTestUtil
 import org.junit.*
 import org.junit.runner.RunWith
 
@@ -67,9 +67,9 @@ class TaskDAOTest {
 
     @Test
     fun fetchAllTasks(){
-        dao.findAll().observeOnce { tasks ->
-            Assert.assertEquals(true, tasks.isNotEmpty())
-        }
+        val tasksLD = dao.findAll()
+        val tasks = LiveDataTestUtil.getValue(tasksLD)
+        Assert.assertEquals(true, tasks.isNotEmpty())
     }
 
     @Test
@@ -85,8 +85,4 @@ class TaskDAOTest {
         Assert.assertEquals(1, quantity)
     }
 
-    private fun <T> LiveData<T>.observeOnce(onChangeHandler: (T) -> Unit){
-        val observer = OneTimeObserver(handler = onChangeHandler)
-        observe(observer, observer)
-    }
 }
