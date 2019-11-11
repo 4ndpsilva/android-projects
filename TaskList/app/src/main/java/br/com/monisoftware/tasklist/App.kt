@@ -10,6 +10,6 @@ class App : Application(){
 
     override fun onCreate() {
         super.onCreate()
-        database = DatabaseApp.getInstance(this)
+        database = DatabaseApp(this)
     }
 }

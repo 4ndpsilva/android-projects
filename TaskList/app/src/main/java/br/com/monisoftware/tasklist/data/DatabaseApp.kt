@@ -11,8 +11,13 @@ import br.com.monisoftware.tasklist.data.entity.Task
 abstract class DatabaseApp : RoomDatabase(){
     companion object{
         private const val DATABASE_NAME = "tasks.db"
+        private var instance: DatabaseApp? = null
 
-        fun getInstance(cxt: Context): DatabaseApp {
+        operator fun invoke(cxt: Context) = instance ?: synchronized(this){
+            instance ?: getInstance(cxt)
+        }
+
+        private fun getInstance(cxt: Context): DatabaseApp {
             return synchronized(DatabaseApp::class){
                  Room.databaseBuilder(cxt, DatabaseApp::class.java, DATABASE_NAME)
                      .allowMainThreadQueries()

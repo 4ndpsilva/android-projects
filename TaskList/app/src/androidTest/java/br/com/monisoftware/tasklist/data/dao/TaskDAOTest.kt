@@ -34,7 +34,7 @@ class TaskDAOTest {
     fun closeDB() = database.close()
 
     @Test
-    fun saveAndGetTask(){
+    fun shouldSaveAndGetTask(){
         val task = Task(description = "Limpar a casa", done = false)
         task.id = dao.save(task)
 
@@ -43,14 +43,14 @@ class TaskDAOTest {
     }
 
     @Test
-    fun deleteAndFetchDeletedTaskById(){
+    fun shouldDeleteAndFetchDeletedTaskById(){
         val task = Task(id = 1)
         dao.delete(task)
         Assert.assertNull(dao.findById(1))
     }
 
     @Test
-    fun updateAndGetTask(){
+    fun shouldUpdateAndGetTaskUpdatedById(){
         val description = "Lavar o carro"
         val task = Task(1, description, true)
         dao.update(task)
@@ -60,29 +60,28 @@ class TaskDAOTest {
     }
 
     @Test
-    fun fetchTaskById(){
+    fun shouldFetchTaskById(){
         val task = dao.findById(3)
         Assert.assertNotNull(task)
     }
 
     @Test
-    fun fetchAllTasks(){
+    fun shouldFetchAllTasks(){
         val tasksLD = dao.findAll()
         val tasks = LiveDataTestUtil.getValue(tasksLD)
         Assert.assertEquals(true, tasks.isNotEmpty())
     }
 
     @Test
-    fun fetchQuantityPendingTasks(){
+    fun shouldFetchQuantityPendingTasks(){
         val quantity = dao.getRemainingTasks(false)
         Assert.assertEquals(3, quantity)
     }
 
     @Test
-    fun fetchQuantityDoneTasks(){
+    fun shouldFetchQuantityDoneTasks(){
         dao.update(Task(id = 1, done = true))
         val quantity = dao.getRemainingTasks(true)
         Assert.assertEquals(1, quantity)
     }
-
 }

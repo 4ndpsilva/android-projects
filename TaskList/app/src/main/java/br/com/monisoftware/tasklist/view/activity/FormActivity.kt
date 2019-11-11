@@ -22,10 +22,7 @@ class FormActivity : AppCompatActivity(), FormContract.View<Task> {
         setContentView(R.layout.form_activity)
 
         checkMode()
-
-        val dao = App.database.getDAO()
-        presenter = FormPresenter(this, dao)
-
+        presenter = FormPresenter(this, App.database.getDAO())
         initView()
     }
 

@@ -30,8 +30,7 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
 
-        val dao = App.database.getDAO()
-        presenter = ListPresenter(this, dao)
+        presenter = ListPresenter(this, App.database.getDAO())
         initView()
     }
 
