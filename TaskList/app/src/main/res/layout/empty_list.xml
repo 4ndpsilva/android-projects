@@ -15,5 +15,6 @@
         android:text="@string/no_tasks"
         android:textSize="24sp"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible"
+        android:textColor="@color/textColor"/>
 </LinearLayout>

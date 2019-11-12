@@ -29,7 +29,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tiDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:tint="@color/textColor">
                     <EditText
                         android:id="@+id/edDescription"
                         android:layout_width="match_parent"
@@ -49,7 +50,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/task_status"/>
+                            android:text="@string/task_status"
+                            android:tint="@color/textColor"/>
 
                         <Switch
                             android:id="@+id/swDone"
@@ -68,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:tint="@color/textColor"
         app:srcCompat="@drawable/ic_done"
         app:borderWidth="0dp"
         app:fabSize="normal"

@@ -34,7 +34,7 @@ class TaskDAOTest {
     fun closeDB() = database.close()
 
     @Test
-    fun shouldSaveAndGetTask(){
+    fun shouldSaveAndGetTaskSavedById(){
         val task = Task(description = "Limpar a casa", done = false)
         task.id = dao.save(task)
 
@@ -73,13 +73,13 @@ class TaskDAOTest {
     }
 
     @Test
-    fun shouldFetchQuantityPendingTasks(){
+    fun shouldFetchPendingTasksQuantity(){
         val quantity = dao.getRemainingTasks(false)
         Assert.assertEquals(3, quantity)
     }
 
     @Test
-    fun shouldFetchQuantityDoneTasks(){
+    fun shouldFetchDoneTasksQuantity(){
         dao.update(Task(id = 1, done = true))
         val quantity = dao.getRemainingTasks(true)
         Assert.assertEquals(1, quantity)
