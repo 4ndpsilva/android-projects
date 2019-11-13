@@ -29,13 +29,13 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tiDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:tint="@color/textColor">
+                    android:layout_height="wrap_content">
                     <EditText
                         android:id="@+id/edDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/description"/>
+                        android:hint="@string/description"
+                        style="@style/editStyle"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TableLayout
@@ -50,8 +50,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/task_status"
-                            android:tint="@color/textColor"/>
+                            android:text="@string/task_status"/>
 
                         <Switch
                             android:id="@+id/swDone"
