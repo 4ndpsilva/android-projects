@@ -5,6 +5,7 @@
     <!-- Labels -->
     <string name="description">Descrição</string>
     <string name="warning">Atenção</string>
+    <string name="delete_itens">Excluir Tarefas Concluídas</string>
     <string name="exit">Sair</string>
 
     <!-- Phrases -->

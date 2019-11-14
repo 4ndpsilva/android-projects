@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.activity.ListActivity">
 
+    <item android:id="@+id/mn_delete_all"
+        android:orderInCategory="200"
+        android:title="@string/delete_itens"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/mn_exit"
         android:orderInCategory="300"
         android:title="@string/exit"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 </menu>
