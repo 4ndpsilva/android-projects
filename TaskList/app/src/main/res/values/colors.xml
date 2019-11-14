@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorDoneTask">#32CD32</color>
-    <color name="colorPendingTask">#FF0000</color>
+    <!-- Base colors -->
+    <color name="colorPrimary">#00C853</color>
+    <color name="colorPrimaryDark">#009624</color>
+    <color name="colorPrimaryLight">#5EFC82</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="colorDoneTask">@color/colorPrimary</color>
+    <color name="colorPendingTask">@android:color/holo_red_dark</color>
 </resources>

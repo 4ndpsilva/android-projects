@@ -27,10 +27,11 @@
                 android:layout_margin="16dp">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:id="@+id/tiDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
                             android:text="@string/task_status"/>
 
                         <Switch
+                            app:theme="@style/ColorAccentStyle"
                             android:id="@+id/swDone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
