@@ -23,4 +23,10 @@ interface TaskDAO{
 
     @Delete
     fun delete(entity: Task)
+
+    @Query("DELETE FROM Task WHERE done = 1")
+    fun delete()
+
+    @Query("UPDATE Task SET done = 1")
+    fun updateAllTasks()
 }

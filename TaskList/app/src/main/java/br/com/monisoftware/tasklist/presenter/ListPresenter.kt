@@ -37,12 +37,25 @@ class ListPresenter : ListContract.Presenter<Task>{
     }
 
     override fun delete(id: Long) {
-        val task = dao?.findById(id)
-        dao?.delete(task ?: throw IllegalArgumentException())
+        dao?.let {
+            if(id > 0) {
+                val task = it.findById(id)
+                it.delete(task)
+            }
+            else{
+                it.delete()
+            }
+        }
     }
 
-    override fun update(task: Task): Int{
-        dao?.update(task)
+    override fun update(task: Task?): Int{
+        if(task != null){
+            dao?.update(task)
+        }
+        else{
+            dao?.updateAllTasks()
+        }
+
         return dao?.getRemainingTasks(false) ?: 0
     }
 }

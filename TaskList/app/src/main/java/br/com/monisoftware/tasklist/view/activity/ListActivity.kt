@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,9 +46,16 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.mn_exit){
+        if(item.itemId == R.id.mn_done_all){
+            presenter.update(null)
+            presenter.populate()
+        }
+        else if(item.itemId == R.id.mn_delete_all){
+            presenter.delete(0)
+            presenter.populate()
+        }
+        else{
             finish()
-            return true
         }
 
         return super.onOptionsItemSelected(item)
@@ -87,7 +95,7 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
         presenter.openForm(task)
     }
 
-    override fun onClickLongItem(task: Task) {
+    override fun onLongClickItem(task: Task) {
         presenter.openConfirmDeleteDialog(task)
     }
 
@@ -99,16 +107,13 @@ class ListActivity : AppCompatActivity(), ListContract.View<Task>, ListContract.
 
     override fun onUpdateItem(task: Task) {
         val remainingTasks = presenter.update(task)
-        lateinit var msg: String
+        var msg = getString(R.string.all_done_tasks)
 
         if(remainingTasks == 1) {
             msg = String.format(getString(R.string.remaining_task), remainingTasks)
         }
         else if(remainingTasks > 1) {
             msg = String.format(getString(R.string.remaining_tasks), remainingTasks)
-        }
-        else {
-            msg = getString(R.string.all_done_tasks)
         }
 
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()

@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="24sp"
-        android:textStyle="italic|bold"/>
+        style="@style/CustomFontStyle"
+        android:textStyle="bold"/>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -25,7 +26,9 @@
             <TextView
                 android:id="@+id/tvStatus"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                style="@style/CustomFontStyle"
+                android:textSize="@dimen/font_size"/>
 
             <Switch
                 app:theme="@style/ColorAccentStyle"

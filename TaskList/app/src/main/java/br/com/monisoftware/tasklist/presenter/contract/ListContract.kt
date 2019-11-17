@@ -6,7 +6,7 @@ import br.com.monisoftware.tasklist.view.BaseView
 interface ListContract{
     interface Presenter<T> {
         fun add()
-        fun update(entity: T): Int
+        fun update(entity: T?): Int
         fun delete(id: Long)
         fun populate()
         fun openForm(entity: T)
@@ -22,7 +22,7 @@ interface ListContract{
 
     interface OnItemClickListener<T>{
         fun onClickItem(entity: T)
-        fun onClickLongItem(entity: T)
+        fun onLongClickItem(entity: T)
         fun onUpdateItem(entity: T)
     }
 

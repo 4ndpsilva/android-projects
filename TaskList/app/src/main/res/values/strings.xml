@@ -1,11 +1,9 @@
 <resources>
-    <string name="app_name">Task List</string>
-    <string name="app_name_symbol">TL</string>
+    <string name="app_name">Lista de Tarefas</string>
 
     <!-- Labels -->
     <string name="description">Descrição</string>
     <string name="warning">Atenção</string>
-    <string name="delete_itens">Excluir Tarefas Concluídas</string>
     <string name="exit">Sair</string>
 
     <!-- Phrases -->
@@ -18,6 +16,8 @@
     <string name="remaining_tasks">Restam %1$d tarefas pendentes</string>
     <string name="remaining_task">Resta uma tarefa pendente</string>
     <string name="all_done_tasks">Todas tarefas concluídas</string>
+    <string name="delete_itens">Excluir tarefas concluídas</string>
+    <string name="done_all">Concluir todas</string>
 
     <!-- Validations -->
     <string name="required">Campo obrigatório</string>

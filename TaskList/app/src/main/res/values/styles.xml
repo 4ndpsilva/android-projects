@@ -11,4 +11,14 @@
     <style name="ColorAccentStyle">
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
+
+    <style name="TitleFontStyle" parent="@style/TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/indie_flower</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomFontStyle">
+        <item name="android:fontFamily">@font/indie_flower</item>
+    </style>
 </resources>

@@ -38,7 +38,7 @@ class TaskAdapter(private val listener: ListContract.OnItemClickListener<Task>) 
         }
 
         holder.itemView.setOnClickListener { listener.onClickItem(task) }
-        holder.itemView.setOnLongClickListener { listener.onClickLongItem(task); true }
+        holder.itemView.setOnLongClickListener { listener.onLongClickItem(task); true }
     }
 
     override fun getItemCount() = items.size

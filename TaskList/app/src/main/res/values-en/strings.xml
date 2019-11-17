@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Task List</string>
+
+    <!-- Labels -->
+    <string name="description">Description</string>
+    <string name="warning">Warning</string>
+    <string name="exit">Exit</string>
+
+    <!-- Phrases -->
+    <string name="no_tasks">No tasks</string>
+    <string name="task_status">Task status</string>
+    <string name="done_task">Task Completed</string>
+    <string name="pending_task">Pending Task</string>
+    <string name="confirm_delete">Do you want to delete the selected item?</string>
+    <string name="success_saved">Data successfully saved</string>
+    <string name="remaining_tasks">Remains %1$d pending tasks</string>
+    <string name="remaining_task">Remain one pending task</string>
+    <string name="all_done_tasks">All completed tasks</string>
+    <string name="delete_itens">Delete completed tasks</string>
+    <string name="done_all">Finish All</string>
+
+    <!-- Validations -->
+    <string name="required">Required field</string>
+    <string name="letter_digit_only">Only letters and numbers allowed</string>
+</resources>
