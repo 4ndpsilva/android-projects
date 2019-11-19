@@ -3,13 +3,13 @@ package br.com.myfinances.data.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import java.util.*
+import java.util.Calendar
 
 @Entity
 data class Entry(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
-    var date: Date,
+    var date: Calendar,
 
     @ForeignKey(entity = Category::class, parentColumns = ["id"], childColumns = ["categoryId"])
     var categoryId: Long,

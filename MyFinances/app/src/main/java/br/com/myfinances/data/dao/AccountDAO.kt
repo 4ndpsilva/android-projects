@@ -8,5 +8,5 @@ import br.com.myfinances.data.entity.Account
 abstract class AccountDAO : GenericDAO<Account>(){
 
     @Query("SELECT * FROM Account WHERE categoryId = :category")
-    abstract suspend fun findByCategory(category: Long): List<Account>
+    abstract fun findByCategory(category: Long): List<Account>
 }

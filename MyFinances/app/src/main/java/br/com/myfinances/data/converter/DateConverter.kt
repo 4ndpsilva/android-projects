@@ -1,15 +1,16 @@
 package br.com.myfinances.data.converter
 
 import androidx.room.TypeConverter
-import java.text.SimpleDateFormat
-import java.util.Date
+import java.util.Calendar
 
 class DateConverter {
-    private val format = "dd/MM/yyyy"
+    @TypeConverter
+    fun fromCalendar(time: Calendar) = time.timeInMillis
 
     @TypeConverter
-    fun fromString(date: String) = SimpleDateFormat(format).parse(date) ?: throw Exception()
-
-    @TypeConverter
-    fun fromDate(date: Date) = SimpleDateFormat(format).format(date) ?: throw Exception()
+    fun toCalendar(time: Long): Calendar{
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = time
+        return cal
+    }
 }
