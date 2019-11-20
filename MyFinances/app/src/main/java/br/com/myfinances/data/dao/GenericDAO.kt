@@ -7,12 +7,12 @@ import java.lang.reflect.ParameterizedType
 
 abstract class GenericDAO<T>{
 
-    fun findById(id: Long): T{
+    suspend fun findById(id: Long): T{
         val query = SimpleSQLiteQuery("SELECT * FROM ${getTableName()} WHERE id = $id")
         return doFindById(query)
     }
 
-    fun findAll(): List<T>{
+    suspend fun findAll(): List<T>{
         val query = SimpleSQLiteQuery("SELECT * FROM ${getTableName()}")
         return doFindAll(query)
     }
@@ -24,17 +24,17 @@ abstract class GenericDAO<T>{
     }
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun save(entity: T)
+    abstract suspend fun save(entity: T)
 
     @Update
-    abstract fun update(entity: T)
+    abstract suspend fun update(entity: T)
 
     @Delete
-    abstract fun delete(entity: T)
+    abstract suspend fun delete(entity: T)
 
     @RawQuery
-    abstract fun doFindById(query : SupportSQLiteQuery): T
+    abstract suspend fun doFindById(query : SupportSQLiteQuery): T
 
     @RawQuery
-    abstract fun doFindAll(query : SupportSQLiteQuery): List<T>
+    abstract suspend fun doFindAll(query : SupportSQLiteQuery): List<T>
 }

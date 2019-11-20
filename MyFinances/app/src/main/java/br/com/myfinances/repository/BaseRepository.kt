@@ -3,13 +3,13 @@ package br.com.myfinances.repository
 import br.com.myfinances.data.dao.GenericDAO
 
 abstract class BaseRepository<T>(private val dao: GenericDAO<T>){
-    fun save(entity: T) = dao.save(entity)
+    suspend fun save(entity: T) = dao.save(entity)
 
-    fun update(entity: T) = dao.update(entity)
+    suspend fun update(entity: T) = dao.update(entity)
 
-    fun delete(entity: T) = dao.delete(entity)
+    suspend fun delete(entity: T) = dao.delete(entity)
 
-    fun findById(id: Long) = dao.findById(id)
+    suspend fun findById(id: Long) = dao.findById(id)
 
-    fun findAll() = dao.findAll()
+    suspend fun findAll() = dao.findAll()
 }
