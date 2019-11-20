@@ -3,7 +3,7 @@ package br.com.myfinances.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.myfinances.repository.BaseRepository
+import br.com.myfinances.data.repository.BaseRepository
 import kotlinx.coroutines.launch
 
 class BaseViewModel<T : BaseRepository<T>>(private var repository: T) : ViewModel() {
