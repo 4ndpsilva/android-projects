@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        categoryVM.list.observeForever {  }
-        accountVM.list.observeForever {  }
+        categoryVM.loadList().observeForever {  }
+        accountVM.loadList().observeForever {  }
     }
 }
