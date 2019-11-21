@@ -6,11 +6,15 @@ import androidx.lifecycle.viewModelScope
 import br.com.myfinances.data.repository.BaseRepository
 import kotlinx.coroutines.launch
 
-class BaseViewModel<T : BaseRepository<T>>(private var repository: T) : ViewModel() {
-    private var list = MutableLiveData<List<T>>()
-    private var entity = MutableLiveData<T>()
+abstract class BaseViewModel<T>(private var repository: BaseRepository<T>) : ViewModel(){
+    var list = MutableLiveData<List<T>>()
+    var entity = MutableLiveData<T>()
 
-    suspend fun loadList(){
+    init{
+        loadList()
+    }
+
+    private fun loadList(){
         val entities = repository.findAll()
         list.postValue(entities)
     }
@@ -33,6 +37,4 @@ class BaseViewModel<T : BaseRepository<T>>(private var repository: T) : ViewMode
             entity.postValue(data)
         }
     }
-
-
 }
