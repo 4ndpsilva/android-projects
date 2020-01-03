@@ -7,16 +7,13 @@ import br.com.myfinances.data.repository.BaseRepository
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<T>(private var repository: BaseRepository<T>) : ViewModel(){
-    var list = MutableLiveData<List<T>>()
-    var entity = MutableLiveData<T>()
+    private var list = MutableLiveData<List<T>>()
+    private var entity = MutableLiveData<T>()
 
-    init{
-        loadList()
-    }
-
-    private fun loadList(){
+    fun loadList(): MutableLiveData<List<T>>{
         val entities = repository.findAll()
         list.postValue(entities)
+        return list
     }
 
     fun save(entity: T){
