@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/tv_no_notes"
+        android:textSize="@dimen/text_size"
+        android:text="@string/no_notes"
+        android:textStyle="bold"
+        android:padding="@dimen/padding_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:gravity="center"/>
+</LinearLayout>

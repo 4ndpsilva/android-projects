@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MyNotes</string>
     <string name="add">Adicionar</string>
+    <string name="save">Salvar</string>
+    <string name="no_notes">Não há notas</string>
+    <string name="description">Descrição</string>
+    <string name="exit">Sair</string>
 </resources>
