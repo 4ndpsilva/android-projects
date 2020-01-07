@@ -1,5 +1,6 @@
 package br.com.mynotes.data.dao
 
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import br.com.mynotes.domain.Note
 

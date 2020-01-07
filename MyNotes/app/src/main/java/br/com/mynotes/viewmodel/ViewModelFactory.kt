@@ -2,10 +2,10 @@ package br.com.mynotes.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import br.com.mynotes.data.dao.FakeDAO
+import br.com.mynotes.NoteRepository
 
-class ViewModelFactory(private val dao: FakeDAO) : ViewModelProvider.Factory {
+class ViewModelFactory(private val repo: NoteRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(clazz: Class<T>): T {
-        return clazz.getConstructor(FakeDAO::class.java).newInstance(dao)
+        return clazz.getConstructor(NoteRepository::class.java).newInstance(repo)
     }
 }
