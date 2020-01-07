@@ -1,10 +1,10 @@
-package br.com.mynotes
+package br.com.mynotes.repository
 
 import br.com.mynotes.data.dao.NoteDAO
 import br.com.mynotes.domain.Note
 
 class NoteRepository(private val dao: NoteDAO) {
-    fun save(note: Note) = dao.save(note)
+    val notes = dao.findAll()
 
-    fun findAll() = dao.findAll()
+    suspend fun save(note: Note) = dao.save(note)
 }

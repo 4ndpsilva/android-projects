@@ -17,9 +17,7 @@ abstract class DatabaseApp : RoomDatabase(){
         private var instance: DatabaseApp? = null
 
         fun getInstance(cxt: Context) = instance ?: synchronized(this){
-            instance ?:  Room.databaseBuilder(cxt, DatabaseApp::class.java, DATABASE_NAME)
-                .allowMainThreadQueries()
-                .build()
+            instance ?:  Room.databaseBuilder(cxt, DatabaseApp::class.java, DATABASE_NAME).build()
         }
     }
 

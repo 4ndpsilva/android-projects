@@ -9,9 +9,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.mynotes.NoteRepository
 import br.com.mynotes.R
-import br.com.mynotes.data.DatabaseApp
 import br.com.mynotes.domain.Note
 import br.com.mynotes.ui.adapter.NoteListAdapter
 import br.com.mynotes.viewmodel.NoteViewModel
@@ -22,7 +20,6 @@ import kotlinx.android.synthetic.main.main_activity.*
 import java.util.*
 
 class MainActivity : AppCompatActivity(){
-    private lateinit var repo: NoteRepository
     private lateinit var factory: ViewModelFactory
 
     private val viewModel: NoteViewModel by lazy{
@@ -37,11 +34,8 @@ class MainActivity : AppCompatActivity(){
 
         setSupportActionBar(main_toolbar)
 
-        repo = NoteRepository(DatabaseApp.getInstance(this).noteDAO())
-        factory = ViewModelFactory(repo)
-
-        initList()
         initViewModel()
+        initList()
 
         bt_add.setOnClickListener { createFormDialog() }
     }
@@ -60,7 +54,9 @@ class MainActivity : AppCompatActivity(){
     }
 
     private fun initViewModel(){
-        viewModel.getNotes().observeForever{ data ->
+        factory = ViewModelFactory(application)
+
+        viewModel.dataset.observeForever{ data ->
             data?.let {
                 if(it.isEmpty()){
                     tv_no_notes.visibility = View.VISIBLE

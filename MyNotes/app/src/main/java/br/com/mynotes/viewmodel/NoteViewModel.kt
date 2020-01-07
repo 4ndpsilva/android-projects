@@ -1,25 +1,25 @@
 package br.com.mynotes.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import br.com.mynotes.NoteRepository
+import android.app.Application
+import androidx.lifecycle.*
+import br.com.mynotes.data.DatabaseApp
+import br.com.mynotes.repository.NoteRepository
 import br.com.mynotes.domain.Note
+import kotlinx.coroutines.launch
 
-class NoteViewModel(private val repo: NoteRepository) : ViewModel(){
-    private var dataset: MutableLiveData<List<Note>>? = null
+class NoteViewModel(app: Application) : AndroidViewModel(app){
+    private val repository: NoteRepository
 
-    fun getNotes(): LiveData<List<Note>>{
-        if(dataset == null) {
-            dataset = MutableLiveData()
-        }
+    val dataset: LiveData<List<Note>>
 
-        dataset?.postValue(repo.findAll())
-
-        return dataset!!
+    init{
+        repository = NoteRepository(DatabaseApp.getInstance(app).noteDAO())
+        dataset = repository.notes
     }
 
-    fun save(note: Note){
-        repo.save(note)
+    fun save(note: Note) {
+        viewModelScope.launch{
+            repository.save(note)
+        }
     }
 }
