@@ -56,19 +56,7 @@ class MainActivity : AppCompatActivity(){
     private fun initViewModel(){
         factory = ViewModelFactory(application)
 
-        viewModel.dataset.observeForever{ data ->
-            data?.let {
-                if(it.isEmpty()){
-                    tv_no_notes.visibility = View.VISIBLE
-                    rv_notes.visibility = View.GONE
-                }
-                else{
-                    tv_no_notes.visibility = View.GONE
-                    rv_notes.visibility = View.VISIBLE
-                    listAdapter.setValues(it)
-                }
-            }
-        }
+        viewModel.dataset.observe(this) { listAdapter.s }
     }
     
     private fun createFormDialog(){

@@ -8,14 +8,9 @@ import br.com.mynotes.domain.Note
 import kotlinx.coroutines.launch
 
 class NoteViewModel(app: Application) : AndroidViewModel(app){
-    private val repository: NoteRepository
+    private val repository: NoteRepository = NoteRepository(DatabaseApp.getInstance(app).noteDAO())
 
-    val dataset: LiveData<List<Note>>
-
-    init{
-        repository = NoteRepository(DatabaseApp.getInstance(app).noteDAO())
-        dataset = repository.notes
-    }
+    val dataset: LiveData<List<Note>> = repository.notes
 
     fun save(note: Note) {
         viewModelScope.launch{
