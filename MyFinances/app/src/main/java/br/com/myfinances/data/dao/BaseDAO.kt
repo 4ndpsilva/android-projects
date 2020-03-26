@@ -5,7 +5,7 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 import androidx.sqlite.db.SupportSQLiteQuery
 import java.lang.reflect.ParameterizedType
 
-abstract class GenericDAO<T>{
+abstract class BaseDAO<T>{
 
     fun findById(id: Long): T{
         val query = SimpleSQLiteQuery("SELECT * FROM ${getTableName()} WHERE id = $id")

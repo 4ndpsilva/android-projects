@@ -6,8 +6,8 @@ import androidx.room.Query
 import br.com.myfinances.data.entity.Account
 
 @Dao
-abstract class AccountDAO : GenericDAO<Account>(){
+abstract class AccountDAO : BaseDAO<Account>(){
 
     @Query("SELECT * FROM Account WHERE categoryId = :category")
-    abstract fun findByCategory(category: Long): LiveData<List<Account>>
+    abstract suspend fun findByCategory(category: Long): LiveData<List<Account>>
 }

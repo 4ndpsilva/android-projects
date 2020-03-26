@@ -1,8 +1,8 @@
 package br.com.myfinances.data.repository
 
-import br.com.myfinances.data.dao.GenericDAO
+import br.com.myfinances.data.dao.BaseDAO
 
-class RepositoryFactory<D : GenericDAO<D>>(dao: D) {
+class RepositoryFactory<D : BaseDAO<D>>(dao: D) {
     companion object {
         fun <R : BaseRepository<*>> getInstance(clazz: Class<R>): R {
             return when(clazz.name){

@@ -6,7 +6,7 @@ import androidx.room.Query
 import br.com.myfinances.data.entity.Category
 
 @Dao
-abstract class CategoryDAO : GenericDAO<Category>(){
+abstract class CategoryDAO : BaseDAO<Category>(){
 
     @Query("SELECT * FROM Category WHERE description LIKE :description")
     abstract suspend fun findByDescription(description: String): LiveData<List<Category>>

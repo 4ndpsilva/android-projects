@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/categories"
+        android:title="@string/categories"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/accounts"
+        android:title="@string/accounts"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/entries"
+        android:title="@string/entries"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/dashboard"
+        android:title="@string/dashboard"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/report"
+        android:title="@string/report"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/exit"
+        android:title="@string/exit"
+        app:showAsAction="always"/>
+</menu>

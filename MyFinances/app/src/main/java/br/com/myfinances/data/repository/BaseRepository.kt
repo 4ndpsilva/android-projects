@@ -1,8 +1,8 @@
 package br.com.myfinances.data.repository
 
-import br.com.myfinances.data.dao.GenericDAO
+import br.com.myfinances.data.dao.BaseDAO
 
-abstract class BaseRepository<T>(private val dao: GenericDAO<T>){
+abstract class BaseRepository<T>(private val dao: BaseDAO<T>){
      fun save(entity: T) = dao.save(entity)
 
     fun update(entity: T) = dao.update(entity)

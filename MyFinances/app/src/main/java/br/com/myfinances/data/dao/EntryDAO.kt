@@ -7,7 +7,7 @@ import br.com.myfinances.data.entity.Entry
 import java.util.*
 
 @Dao
-abstract class EntryDAO : GenericDAO<Entry>(){
+abstract class EntryDAO : BaseDAO<Entry>(){
 
     @Query("SELECT * FROM Entry WHERE date BETWEEN :start AND :end")
     abstract suspend fun findByDate(start: Calendar, end: Calendar): LiveData<List<Entry>>
