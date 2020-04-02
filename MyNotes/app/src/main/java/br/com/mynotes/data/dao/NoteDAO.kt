@@ -6,12 +6,15 @@ import br.com.mynotes.domain.Note
 
 @Dao
 interface NoteDAO {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun save(note: Note): Long
+    @Query("SELECT * FROM Note")
+    fun findAll(): LiveData<List<Note>>
 
     @Delete
     suspend fun delete(note: Note)
 
-    @Query("SELECT * FROM Note ORDER BY date")
-    fun findAll(): LiveData<List<Note>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun save(note: Note): Long
+
+    @Insert
+    fun saveAll(vararg notes: List<Note>): List<Int>
 }

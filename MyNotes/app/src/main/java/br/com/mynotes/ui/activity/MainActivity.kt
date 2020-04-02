@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mynotes.R
@@ -14,19 +14,17 @@ import br.com.mynotes.domain.Note
 import br.com.mynotes.ui.adapter.NoteListAdapter
 import br.com.mynotes.viewmodel.NoteViewModel
 import br.com.mynotes.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.empty_list.*
 import kotlinx.android.synthetic.main.form_note_activity.view.*
 import kotlinx.android.synthetic.main.main_activity.*
 import java.util.*
 
 class MainActivity : AppCompatActivity(){
-    private lateinit var factory: ViewModelFactory
 
     private val viewModel: NoteViewModel by lazy{
-        ViewModelProviders.of(this, factory).get(NoteViewModel::class.java)
+        ViewModelProviders.of(this, ViewModelFactory(application)).get(NoteViewModel::class.java)
     }
 
-    private val listAdapter: NoteListAdapter by lazy{ NoteListAdapter() }
+    private lateinit var listAdapter: NoteListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +32,8 @@ class MainActivity : AppCompatActivity(){
 
         setSupportActionBar(main_toolbar)
 
-        initViewModel()
         initList()
+        initViewModel()
 
         bt_add.setOnClickListener { createFormDialog() }
     }
@@ -54,17 +52,18 @@ class MainActivity : AppCompatActivity(){
     }
 
     private fun initViewModel(){
-        factory = ViewModelFactory(application)
-
-        viewModel.dataset.observe(this) { listAdapter.s }
+        viewModel.notes.observe(this, Observer { data ->
+            listAdapter.setValues(data)
+        })
     }
     
     private fun createFormDialog(){
-        val layout = LayoutInflater.from(this).inflate(R.layout.form_note_activity, null, false)
+        val layout = LayoutInflater
+            .from(this)
+            .inflate(R.layout.form_note_activity, null, false)
 
         val dialog = AlertDialog.Builder(this)
         dialog.setView(layout)
-        dialog.setTitle(R.string.description)
         dialog.setNegativeButton(R.string.cancel, null)
         dialog.setPositiveButton(R.string.save){_, _ ->
             val note = Note()
@@ -72,12 +71,15 @@ class MainActivity : AppCompatActivity(){
             note.description = layout.ed_note.text.toString()
             note.date = Calendar.getInstance()
             viewModel.save(note)
+            listAdapter.add(note)
         }
         dialog.create().show()
     }
 
     private fun initList(){
-        rv_notes.adapter = listAdapter
+        listAdapter = NoteListAdapter()
         rv_notes.layoutManager = LinearLayoutManager(this)
+        rv_notes.setHasFixedSize(true)
+        rv_notes.adapter = listAdapter
     }
 }

@@ -2,7 +2,6 @@
     <string name="app_name">MyNotes</string>
 
     <string name="no_notes">Não há notas</string>
-
     <string name="description">Descrição</string>
     <string name="add">Notas</string>
     <string name="exit">Sair</string>
