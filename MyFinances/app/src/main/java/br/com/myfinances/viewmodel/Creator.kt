@@ -7,12 +7,13 @@ import br.com.myfinances.data.repository.CategoryRepository
 import br.com.myfinances.data.repository.EntryRepository
 
 object Creator {
+    /*
     fun vmFactoryCategory(cxt: Context) : ViewModelFactory<CategoryRepository>{
         val dao = DatabaseApp(cxt).categoryDAO()
         val repo = CategoryRepository(dao)
         return ViewModelFactory(repo)
     }
-
+*/
     fun vmFactoryAccount(cxt: Context) : ViewModelFactory<AccountRepository>{
         val dao = DatabaseApp(cxt).accountDAO()
         val repo = AccountRepository(dao)

@@ -1,34 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="@string/registrations">
+        <menu>
+            <item
+                android:id="@+id/categories"
+                android:title="@string/categories"
+                android:icon="@drawable/ic_category_24"
+                app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/categories"
-        android:title="@string/categories"
-        app:showAsAction="always"/>
+            <item
+                android:id="@+id/accounts"
+                android:title="@string/accounts"
+                android:icon="@drawable/ic_account_24"
+                app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/accounts"
-        android:title="@string/accounts"
-        app:showAsAction="always"/>
+            <item
+                android:id="@+id/entries"
+                android:title="@string/entries"
+                android:icon="@drawable/ic_money_24"
+                app:showAsAction="ifRoom"/>
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/entries"
-        android:title="@string/entries"
-        app:showAsAction="always"/>
+    <item android:title="@string/report_options">
+        <menu>
+            <item
+                android:id="@+id/dashboard"
+                android:title="@string/dashboard"
+                android:icon="@drawable/ic_chart_24"
+                app:showAsAction="ifRoom"/>
 
-    <item
-        android:id="@+id/dashboard"
-        android:title="@string/dashboard"
-        app:showAsAction="always"/>
+            <item
+                android:id="@+id/reports"
+                android:title="@string/report_options"
+                android:icon="@drawable/ic_report_24"
+                app:showAsAction="ifRoom"/>
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/report"
-        android:title="@string/report"
-        app:showAsAction="always"/>
+    <group android:id="@+id/gp_config">
+        <item
+            android:id="@+id/configuration"
+            android:title="@string/configurations"
+            android:icon="@drawable/ic_settings_24dp"
+            app:showAsAction="ifRoom"/>
+    </group>
 
     <item
         android:id="@+id/exit"
         android:title="@string/exit"
-        app:showAsAction="always"/>
+        android:icon="@drawable/ic_exit_24dp"
+        app:showAsAction="ifRoom"/>
 </menu>

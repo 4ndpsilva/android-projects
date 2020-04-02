@@ -1,13 +1,13 @@
 package br.com.myfinances.data.repository
 
-import br.com.myfinances.data.dao.BaseDAO
+import br.com.myfinances.data.dao.GenericDAO
 
-abstract class BaseRepository<T>(private val dao: BaseDAO<T>){
-     fun save(entity: T) = dao.save(entity)
+abstract class BaseRepository<T>(private val dao: GenericDAO<T>){
+    suspend fun save(entity: T) = dao.save(entity)
 
-    fun update(entity: T) = dao.update(entity)
+    suspend fun update(entity: T) = dao.update(entity)
 
-    fun delete(entity: T) = dao.delete(entity)
+    suspend fun delete(entity: T) = dao.delete(entity)
 
     fun findById(id: Long) = dao.findById(id)
 

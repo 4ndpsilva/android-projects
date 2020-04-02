@@ -1,3 +1,38 @@
 <resources>
-    <string name="app_name">MyFinances</string>
+    <string name="app_name">My Finances</string>
+    <!-- labels -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="clear">Clear</string>
+    <string name="delete">Delete</string>
+
+    <!-- titles -->
+    <string name="registrations">Registrations</string>
+    <string name="report_options">Reports</string>
+    <string name="analysis">Analysis</string>
+    <string name="categories">Categories</string>
+    <string name="accounts">Accounts</string>
+    <string name="entries">Entries</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="exit">Exit</string>
+    <string name="details">Details</string>
+    <string name="new_category">New Category</string>
+    <string name="new_account">New Account</string>
+    <string name="new_entry">New Entry</string>
+    <string name="edit_category">Edit Category</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="edit_entry">Edit Entry</string>
+
+    <!-- default messages -->
+    <string name="saved_success">Saved success</string>
+    <string name="warning">Warning</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="value">Value</string>
+    <string name="date">Date</string>
+    <string name="category">Category</string>
+    <string name="account">Account</string>
+    <string name="description">Description</string>
+    <string name="operation">Operation</string>
+    <string name="configurations">Configurations</string>
 </resources>

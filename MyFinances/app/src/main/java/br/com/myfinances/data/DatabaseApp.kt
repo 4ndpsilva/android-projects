@@ -17,7 +17,7 @@ import br.com.myfinances.data.entity.Entry
 @TypeConverters(DateConverter::class)
 abstract class DatabaseApp : RoomDatabase(){
     companion object{
-        private const val DATABASE_NAME = "finance.db"
+        private const val DATABASE_NAME = "finances.db"
 
         @Volatile
         private var instance: DatabaseApp? = null

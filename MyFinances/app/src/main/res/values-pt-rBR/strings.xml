@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Finances</string>
+
+    <!-- labels -->
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="clear">Limpar</string>
+    <string name="delete">Excluir</string>
+    <string name="date">Data</string>
+    <string name="category">Categoria</string>
+    <string name="account">Conta</string>
+    <string name="operation">Operação</string>
+    <string name="value">Valor</string>
+    <string name="description">Descrição</string>
+
+    <!--titles-->
+    <string name="registrations">Cadastros</string>
+    <string name="analysis">Análises</string>
+    <string name="report_options">Relatórios</string>
+    <string name="categories">Categorias</string>
+    <string name="accounts">Contas</string>
+    <string name="entries">Lançamentos</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="exit">Sair</string>
+    <string name="details">Detalhes</string>
+    <string name="new_category">Nova Categoria</string>
+    <string name="new_account">Nova Conta</string>
+    <string name="new_entry">Novo Lançamento</string>
+    <string name="edit_category">Alterar Categoria</string>
+    <string name="edit_account">Alterar Conta</string>
+    <string name="edit_entry">Alterar Lançamento</string>
+
+    <!-- default messages -->
+    <string name="saved_success">Saved success</string>
+    <string name="warning">Warning</string>
+    <string name="error">Error</string>
+    <string name="success">Sucesso</string>
+    <string name="configurations">Configurações</string>
+</resources>
