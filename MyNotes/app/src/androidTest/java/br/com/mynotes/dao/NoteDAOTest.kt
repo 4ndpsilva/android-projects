@@ -7,7 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import br.com.mynotes.data.DatabaseApp
 import br.com.mynotes.data.dao.NoteDAO
-import br.com.mynotes.domain.Note
+import br.com.mynotes.data.domain.Note
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -28,8 +28,14 @@ class NoteDAOTest {
 
     @Test
     fun shouldSaveNotes(){
-        val note1 = Note(description = "nota 1", date = Calendar.getInstance())
-        val note2 = Note(description = "nota 2", date = Calendar.getInstance())
+        val note1 = Note(
+            description = "nota 1",
+            date = Calendar.getInstance()
+        )
+        val note2 = Note(
+            description = "nota 2",
+            date = Calendar.getInstance()
+        )
         val notes = listOf(note1, note2)
 
         val ids = dao.saveAll(notes)

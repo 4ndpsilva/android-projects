@@ -5,18 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/main_toolbar"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/white"
-        android:background="@android:color/holo_blue_light"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:menu="@menu/menu_actions"/>
+        android:background="@android:color/holo_blue_light"
+        app:menu="@menu/menu_actions"
+        app:title="@string/app_name"
+        app:titleTextColor="@android:color/white" />
 
-    <!--<include layout="@layout/empty_list"/>-->
+    <include
+        android:id="@+id/incEmptyList"
+        layout="@layout/empty_list" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,21 +26,21 @@
         android:paddingTop="?attr/actionBarSize">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_notes"
+            android:id="@+id/rvNotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/card_note_item" />
+            tools:listitem="@layout/note_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/bt_add"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/rv_notes"
         android:layout_margin="@dimen/margin_fab"
+        android:backgroundTint="@android:color/holo_blue_dark"
         app:borderWidth="0dp"
         app:fabSize="normal"
+        app:layout_anchor="@id/rvNotes"
         app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_add_black_24dp"
-        android:backgroundTint="@android:color/holo_blue_dark"/>
+        app:srcCompat="@drawable/ic_add_black_24dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

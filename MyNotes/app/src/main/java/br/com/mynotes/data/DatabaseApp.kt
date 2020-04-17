@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import br.com.mynotes.data.converter.DateConverter
 import br.com.mynotes.data.dao.NoteDAO
-import br.com.mynotes.domain.Note
+import br.com.mynotes.data.domain.Note
 
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverter::class)

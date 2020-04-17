@@ -2,12 +2,12 @@ package br.com.mynotes.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import br.com.mynotes.domain.Note
+import br.com.mynotes.data.domain.Note
 
 @Dao
 interface NoteDAO {
     @Query("SELECT * FROM Note")
-    fun findAll(): LiveData<List<Note>>
+    fun getAll(): LiveData<List<Note>>
 
     @Delete
     suspend fun delete(note: Note)
@@ -15,6 +15,6 @@ interface NoteDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(note: Note): Long
 
-    @Insert
-    fun saveAll(vararg notes: List<Note>): List<Int>
+    @Query("DELETE FROM Note")
+    suspend fun deleteAll()
 }

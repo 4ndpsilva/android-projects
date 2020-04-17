@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">MyNotes</string>
 
-    <string name="no_notes">Não há notas</string>
+    <!-- labels -->
     <string name="description">Descrição</string>
-    <string name="add">Notas</string>
+    <string name="add">Adicionar</string>
     <string name="exit">Sair</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Salvar</string>
+    <string name="refresh">Atualizar</string>
+    <string name="warning">Atenção</string>
+    <string name="edit">Editar</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+
+    <!-- frases -->
+    <string name="delete_all">Excluir Todos</string>
+    <string name="new_note">Nova nota</string>
+    <string name="no_notes">Não há notas</string>
+    <string name="confirm_exit">Deseja sair do aplicativo?</string>
+    <string name="confirm_delete_all">Deseja excluir todos os registros?</string>
 </resources>

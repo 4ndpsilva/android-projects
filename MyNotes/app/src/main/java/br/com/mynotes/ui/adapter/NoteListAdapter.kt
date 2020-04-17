@@ -1,38 +1,25 @@
 package br.com.mynotes.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import android.view.animation.AnimationUtils
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.ListAdapter
 import br.com.mynotes.R
-import br.com.mynotes.domain.Note
+import br.com.mynotes.databinding.NoteItemBinding
+import br.com.mynotes.data.domain.Note
 
-class NoteListAdapter : RecyclerView.Adapter<NoteViewHolder>(){
-    private var dataset: MutableList<Note> = mutableListOf()
-    private var indexItem = 0
-
+class NoteListAdapter(var cxt: Context) : ListAdapter<Note, NoteViewHolder>(GenericDiffCallback()){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.note_item, parent, false)
-        return NoteViewHolder(view)
+        val view = LayoutInflater.from(parent.context)
+        val dataBinding = DataBindingUtil.inflate<NoteItemBinding>(view, R.layout.note_item, parent, false)
+        return NoteViewHolder(dataBinding)
     }
 
-    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) = holder.bindView(dataset[position])
-
-    override fun getItemCount() = dataset.size
-
-    fun setValues(values: List<Note>){
-        dataset = values.toMutableList()
-        notifyDataSetChanged()
-    }
-
-    fun add(item: Note){
-        indexItem = dataset.indexOf(item)
-        dataset.add(item)
-        notifyItemInserted(indexItem)
-    }
-
-    fun remove(item: Note){
-        indexItem = dataset.indexOf(item)
-        dataset.remove(item)
-        notifyItemRemoved(indexItem)
+    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+        holder.itemView.animation = AnimationUtils.loadAnimation(cxt, R.anim.item_animation)
+        holder.bindView(getItem(position))
     }
 }
