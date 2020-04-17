@@ -42,14 +42,35 @@
         android:label="@string/categories"
         tools:layout="@layout/fragment_category">
 
+        <action
+            android:id="@+id/action_category_to_detail"
+            app:destination="@id/category_detail_fragment"/>
+
+        <action
+            android:id="@+id/action_category_to_new"
+            app:destination="@id/category_form_fragment"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/category_detail_fragment"
+        android:name="br.com.myfinances.ui.fragment.CategoryDetailFragment"
+        android:label="@string/categories"
+        tools:layout="@layout/fragment_category_detail">
+        <action
+            android:id="@+id/action_detail_to_form"
+            app:destination="@id/category_form_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/category_form_fragment"
+        android:name="br.com.myfinances.ui.fragment.CategoryFormFragment"
+        tools:layout="@layout/fragment_category_form"/>
 
     <fragment
         android:id="@+id/account_fragment"
         android:name="br.com.myfinances.ui.fragment.AccountFragment"
         android:label="@string/accounts"
-        tools:layout="@layout/fragment_account">
-    </fragment>
+        tools:layout="@layout/fragment_account"/>
 
     <fragment
         android:id="@+id/entry_fragment"

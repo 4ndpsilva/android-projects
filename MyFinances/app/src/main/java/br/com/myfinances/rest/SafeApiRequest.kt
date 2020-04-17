@@ -1,4 +1,4 @@
-package br.com.myfinances
+package br.com.myfinances.rest
 
 import retrofit2.Response
 import java.io.IOException
@@ -10,10 +10,9 @@ abstract class SafeApiRequest {
         if(response.isSuccessful){
             return response.body()!!
         }
-        else{
-            throw ApiException(response.code().toString())
-        }
+
+        throw ApiException(response.code().toString())
     }
 }
 
-class ApiException(message: String) : IOException(message)
+class ApiException(msg: String) : IOException(msg)

@@ -1,4 +1,4 @@
-package br.com.myfinances
+package br.com.myfinances.ui
 
 import androidx.navigation.NavController
 

@@ -1,12 +1,10 @@
 package br.com.myfinances.dao
 
 import android.content.Context
-import androidx.room.Database
 import androidx.test.platform.app.InstrumentationRegistry
 import br.com.myfinances.data.DatabaseApp
-import br.com.myfinances.data.repository.BaseRepository
-import br.com.myfinances.data.repository.CategoryRepository
-import br.com.myfinances.data.repository.RepositoryFactory
+import br.com.myfinances.repository.CategoryRepository
+import br.com.myfinances.repository.RepositoryFactory
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

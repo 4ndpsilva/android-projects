@@ -1,4 +1,4 @@
-package br.com.myfinances.data.repository
+package br.com.myfinances.repository
 
 import br.com.myfinances.data.dao.EntryDAO
 import br.com.myfinances.data.entity.Entry

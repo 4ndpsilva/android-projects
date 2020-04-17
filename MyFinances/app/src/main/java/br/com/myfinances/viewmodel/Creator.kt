@@ -2,9 +2,8 @@ package br.com.myfinances.viewmodel
 
 import android.content.Context
 import br.com.myfinances.data.DatabaseApp
-import br.com.myfinances.data.repository.AccountRepository
-import br.com.myfinances.data.repository.CategoryRepository
-import br.com.myfinances.data.repository.EntryRepository
+import br.com.myfinances.repository.AccountRepository
+import br.com.myfinances.repository.EntryRepository
 
 object Creator {
     /*
@@ -13,7 +12,8 @@ object Creator {
         val repo = CategoryRepository(dao)
         return ViewModelFactory(repo)
     }
-*/
+
+     */
     fun vmFactoryAccount(cxt: Context) : ViewModelFactory<AccountRepository>{
         val dao = DatabaseApp(cxt).accountDAO()
         val repo = AccountRepository(dao)
