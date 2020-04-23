@@ -1,23 +1,28 @@
 <resources>
-    <string name="app_name">Lista de Tarefas</string>
+    <string name="app_name">My Duties</string>
 
     <!-- Labels -->
     <string name="description">Descrição</string>
     <string name="warning">Atenção</string>
     <string name="exit">Sair</string>
+    <string name="add">Adicionar</string>
+    <string name="edit">Editar</string>
 
     <!-- Phrases -->
-    <string name="no_tasks">Sem tarefas</string>
+    <string name="nothing_to_do">Nada para fazer</string>
     <string name="task_status">Situação da tarefa</string>
     <string name="done_task">Tarefa Concluída</string>
     <string name="pending_task">Tarefa Pendente</string>
-    <string name="confirm_delete">Deseja excluir o item selecionado?</string>
+    <string name="confirm_delete">Deseja excluir o registro selecionado?</string>
+    <string name="confirm_delete_selected">Deseja excluir os registros selecionados?</string>
     <string name="success_saved">Dados salvos com sucesso</string>
     <string name="remaining_tasks">Restam %1$d tarefas pendentes</string>
     <string name="remaining_task">Resta uma tarefa pendente</string>
-    <string name="all_done_tasks">Todas tarefas concluídas</string>
-    <string name="delete_itens">Excluir tarefas concluídas</string>
+    <string name="all_done">Dever cumprido</string>
+    <string name="delete_items">Excluir tarefas concluídas</string>
     <string name="done_all">Concluir todas</string>
+    <string name="unchecked_all">Desmarcar todas</string>
+    <string name="created_in">Criada em</string>
 
     <!-- Validations -->
     <string name="required">Campo obrigatório</string>

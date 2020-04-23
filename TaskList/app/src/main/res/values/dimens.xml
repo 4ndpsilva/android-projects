@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="font_size">18dp</dimen>
+    <dimen name="padding">18dp</dimen>
+    <dimen name="font_size">18sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_size_item">24sp</dimen>
+    <dimen name="splash_font_size">40sp</dimen>
+    <dimen name="min_padding_progress">10dp</dimen>
+    <dimen name="min_width_progress">50dp</dimen>
+    <dimen name="min_height_progress">50dp</dimen>
+    <dimen name="padding_item">16dp</dimen>
+    <dimen name="margin_fab">16dp</dimen>
+    <dimen name="border_width_fab">0dp</dimen>
+    <dimen name="margin_top">20dp</dimen>
+    <dimen name="margin_bottom">20dp</dimen>
 </resources>

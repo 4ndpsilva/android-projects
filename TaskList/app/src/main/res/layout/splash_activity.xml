@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".view.activity.SplashScreenActivity">
+    tools:context=".ui.activity.">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/app_name"
         style="@style/CustomFontStyle"
-        android:textSize="40sp"
+        android:textSize="@dimen/splash_font_size"
         android:textStyle="bold"/>
 
     <ProgressBar
@@ -23,8 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="10dp"
-        android:minWidth="50dp"
-        android:minHeight="50dp"/>
-
+        android:padding="@dimen/min_padding_progress"
+        android:minWidth="@dimen/min_width_progress"
+        android:minHeight="@dimen/min_height_progress"/>
 </LinearLayout>

@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="?attr/selectableItemBackground">
-
-    <TextView
-        android:id="@+id/tvTask"
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="24sp"
-        style="@style/CustomFontStyle"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_item"
+        android:background="?attr/selectableItemBackground">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="1">
+        <TextView
+            android:id="@+id/tvLabelDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/font_size_item"
+            style="@style/CustomFontStyle"
+            android:textStyle="bold"/>
 
-        <TableRow android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvLabelDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/font_small"
+            style="@style/CustomFontStyle"
+            android:textStyle="bold" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
 
-            <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                style="@style/CustomFontStyle"
-                android:textSize="@dimen/font_size"/>
+            <TableRow android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Switch
-                app:theme="@style/ColorAccentStyle"
-                android:id="@+id/swDone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"/>
-        </TableRow>
-    </TableLayout>
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/CustomFontStyle"
+                    android:textSize="@dimen/font_size"/>
+
+                <Switch
+                    android:id="@+id/swDone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    app:theme="@style/ColorAccentStyle"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</layout>
