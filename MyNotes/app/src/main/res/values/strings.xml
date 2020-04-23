@@ -15,8 +15,11 @@
 
     <!-- frases -->
     <string name="delete_all">Excluir Todos</string>
-    <string name="new_note">Nova nota</string>
+    <string name="new_note">Nova Nota</string>
+    <string name="edit_note">Editar Nota</string>
     <string name="no_notes">Não há notas</string>
     <string name="confirm_exit">Deseja sair do aplicativo?</string>
-    <string name="confirm_delete_all">Deseja excluir todos os registros?</string>
+    <string name="confirm_delete_all">Deseja excluir os registros selecionados?</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="success_saved">Dados salvos com sucesso</string>
 </resources>

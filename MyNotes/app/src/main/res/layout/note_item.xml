@@ -6,25 +6,27 @@
             type="br.com.mynotes.data.domain.Note"/>
     </data>
 
-    <androidx.cardview.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
-        card_view:elevation="@dimen/cardview_default_elevation"
-        android:background="?attr/selectableItemBackground">
+        android:stretchColumns="1">
 
-        <TextView
-            android:id="@+id/tvNote"
-            android:text="@{note.description}"
-            android:textSize="@dimen/text_size"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvNote"
+                android:text="@{note.description}"
+                android:textSize="@dimen/text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <CheckBox
-            android:id="@+id/cbNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"/>
-    </androidx.cardview.widget.CardView>
+            <CheckBox
+                android:id="@+id/cbNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"/>
+        </TableRow>
+    </TableLayout>
 </layout>

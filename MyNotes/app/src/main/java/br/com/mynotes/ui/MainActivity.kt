@@ -2,27 +2,24 @@ package br.com.mynotes.ui
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mynotes.R
 import br.com.mynotes.data.domain.Note
 import br.com.mynotes.ui.adapter.NoteListAdapter
-import br.com.mynotes.viewmodel.NoteViewModel
-import kotlinx.android.synthetic.main.form_note_activity.view.*
+import br.com.mynotes.ui.adapter.OnListItemListener
+import br.com.mynotes.ui.viewmodel.NoteViewModel
+import br.com.mynotes.util.toast
 import kotlinx.android.synthetic.main.main_activity.*
-import java.util.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity(){
-    private val adapter: NoteListAdapter by lazy { NoteListAdapter(this) }
-    private val viewModel: NoteViewModel by lazy{
-        ViewModelProvider(this).get(NoteViewModel::class.java)
-    }
+class MainActivity : AppCompatActivity(), OnListItemListener{
+    private val viewModel by viewModel<NoteViewModel>()
+    private val adapter: NoteListAdapter by lazy { NoteListAdapter(this, this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +34,12 @@ class MainActivity : AppCompatActivity(){
             adapter.submitList(data)
         })
 
-        btnAdd.setOnClickListener { showFormDialog() }
+        viewModel.valid.observe(this, Observer{
+            val msg = if(it) R.string.success_saved else R.string.required_field
+            toast(msg)
+        })
+
+        btnAdd.setOnClickListener { showForm() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -54,6 +56,12 @@ class MainActivity : AppCompatActivity(){
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onItemClick(note: Note) = showForm(note)
+
+    override fun onCheckedItems(vararg codes: Int) {
+        TODO("Not yet implemented")
+    }
+
     private fun confirmDialog(msg: Int, func: () -> Unit){
         val confirmDialog = AlertDialog.Builder(this)
         confirmDialog.setTitle(R.string.warning)
@@ -63,19 +71,10 @@ class MainActivity : AppCompatActivity(){
         confirmDialog.create().show()
     }
 
-    private fun showFormDialog(){
-        val layout = LayoutInflater.from(this).inflate(R.layout.form_note_activity, null, false)
-
-        val dialog = AlertDialog.Builder(this)
-        dialog.setView(layout)
-        dialog.setTitle(R.string.new_note)
-        dialog.setNegativeButton(R.string.cancel, null)
-        dialog.setPositiveButton(R.string.save){_, _ ->
-            val note = Note()
-            note.description = layout.edNote.text.toString()
-            note.date = Calendar.getInstance()
-            viewModel.save(note)
-        }
-        dialog.create().show()
+    private fun showForm(note: Note = Note()){
+        val form = FormDialogFragment()
+        form.arguments = Bundle().apply { putParcelable("NOTE", note) }
+        form.setVM(viewModel)
+        form.show(supportFragmentManager, "formDialog")
     }
 }
